@@ -1,0 +1,24 @@
+- name: Copy the compose file
+  become: true
+  template:
+    src: templates/compose.yaml
+    dest: "{{ docker_compose_dir }}/compose.zigbee2mqtt.yaml"
+  register: compose_file
+
+- name: Create the zigbee2mqtt persistent config directory
+  become: true
+  ansible.builtin.file:
+    path: "{{ docker_dir }}/zigbee2mqtt/data"
+    state: directory
+
+- name: Copy the config file
+  become: true
+  template:
+    src: templates/configuration.yaml
+    dest: "{{ docker_dir }}/zigbee2mqtt/data/configuration.yaml"
+  register: config_file
+
+- name: Docker-compose up
+  become: true
+  ansible.builtin.command: "docker compose -f {{ docker_compose_dir }}/compose.zigbee2mqtt.yaml up --detach"
+  when: compose_file.changed or config_file.changed

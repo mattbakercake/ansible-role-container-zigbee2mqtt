@@ -1,0 +1,27 @@
+frontend: true
+homeassistant: true
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt{{ 's' if mqtt_port == 8883 }}://{{ mqtt_host }}:{{ mqtt_port }}
+
+  #commented jinja conditionals in template prevent yaml layout syntax issues
+  #{% if mqtt_port == 8883 %}
+
+  ca: "{{ cert_dir }}/{{ ca_cert }}"
+
+  #{% endif %}
+
+  #{% if mqtt_port == 1883 %}
+
+  user: "{{ mqtt_user }}"
+  password: "{{ mqtt_password }}"
+
+  #{% endif %}
+
+  reject_unauthorized: false
+
+#{% if zigbee_serial_device_port %}
+serial:
+  port: "{{ zigbee_serial_device_port }}"
+#{% endif %}

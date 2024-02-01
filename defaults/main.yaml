@@ -1,0 +1,12 @@
+timezone: Europe/London
+docker_dir: /usr/local/sbin/docker
+docker_compose_dir: /usr/local/sbin/docker/compose
+mqtt_host: mqtt
+mqtt_port: 1883
+cert_dir: /etc/ssl/certs
+ca_cert: ca.crt
+mqtt_user: mqtt
+#letmein should be overriden with secure password!
+mqtt_password: $6$30sYIlAGtsap3v2N$CI5iiwJtm9Ghmjeogu4zQH0l4wstJeiaksa5G94u1S7gkQnfoY79gCrQERuLZmkQaY0GDYJX1YCaBIatWnc6p0
+# e.g. /dev/ttyACM0 - see docs on how discover this on device https://www.zigbee2mqtt.io/guide/getting-started/#installation
+zigbee_serial_device_port:
