@@ -4,7 +4,7 @@ docker_compose_dir: /usr/local/sbin/docker/compose
 mqtt_host: mqtt
 mqtt_port: 1883
 cert_dir: /etc/ssl/certs
-ca_cert: ca.crt
+ca_cert: "ca.crt"
 mqtt_anonymous: "false"
 mqtt_user: mqtt
 #letmein should be overriden with secure password!
