@@ -20,5 +20,6 @@
 
 - name: Docker-compose up
   become: true
-  ansible.builtin.command: "docker compose -f {{ docker_compose_dir }}/compose.zigbee2mqtt.yaml up"
+  community.docker.docker_compose:
+    project_src: "{{ docker_compose_dir }}/compose.zigbee2mqtt.yaml"
   when: compose_file.changed or config_file.changed
