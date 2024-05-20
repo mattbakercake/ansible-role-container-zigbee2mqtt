@@ -3,19 +3,19 @@ homeassistant: true
 permit_join: true
 mqtt:
   base_topic: zigbee2mqtt
-  server: mqtt://{{ mqtt_host }}:{{ mqtt_port }}
+  server: mqtt{{ 's' if mqtt_listener_port == 8883 }}://{{ mqtt_host }}:{{ mqtt_listener_port }}
 
   #commented jinja conditionals in template prevent yaml layout syntax issues
-  #{% if mqtt_port == 8883 %}
+  #{% if mqtt_listener_port == 8883 %}
 
-  ca: "{{ cert_dir }}/{{ ca_cert }}"
+  ca: {{ cert_dir }}/{{ ca_cert }}
 
   #{% endif %}
 
-  #{% if mqtt_port == 1883 %}
+  #{% if mqtt_anonymous == false %}
 
-  user: "{{ mqtt_user }}"
-  password: "{{ mqtt_password }}"
+  user: {{ mqtt_user }}
+  password: {{ mqtt_password }}
 
   #{% endif %}
 
