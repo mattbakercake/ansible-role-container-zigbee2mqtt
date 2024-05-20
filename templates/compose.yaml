@@ -12,7 +12,7 @@
     environment:
       - TZ="{{ timezone }}"
     
-  {% if zigbee_serial_device_port %}
+{% if zigbee_serial_device_port %}
     devices:
       - "{{ zigbee_serial_device_port }}:{{ zigbee_serial_device_port }}"
-  {% endif %}
+{% endif %}
