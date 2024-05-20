@@ -20,5 +20,5 @@
 
 - name: Docker-compose up
   become: true
-  ansible.builtin.command: "docker compose -f {{ docker_compose_dir }}/compose.zigbee2mqtt.yaml up --detach"
+  ansible.builtin.command: "docker compose -f {{ docker_compose_dir }}/compose.zigbee2mqtt.yaml up"
   when: compose_file.changed or config_file.changed
