@@ -21,5 +21,7 @@
 - name: Docker-compose up
   become: true
   community.docker.docker_compose_v2:
-    project_src: "{{ docker_compose_dir }}/compose.zigbee2mqtt.yaml"
+    project_src: "{{ docker_compose_dir }}"
+    files:
+    - compose.zigbee2mqtt.yaml
   when: compose_file.changed or config_file.changed
