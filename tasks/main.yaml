@@ -21,8 +21,8 @@
 - name: Docker-compose up
   become: true
   community.docker.docker_compose_v2:
+    project_name: "zigbee2mqtt"
     project_src: "{{ docker_compose_dir }}"
     files:
     - compose.zigbee2mqtt.yaml
-    remove_orphans: false
   when: compose_file.changed or config_file.changed
