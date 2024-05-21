@@ -12,7 +12,7 @@ mqtt:
 
   #{% endif %}
 
-  #{% if mqtt_anonymous == false %}
+  #{% if mqtt_anonymous == "false" %}
 
   user: {{ mqtt_user }}
   password: {{ mqtt_password }}
