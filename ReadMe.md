@@ -16,7 +16,7 @@ see `defaults\main.yaml`
 * `docker_dir` - docker dir
 * `docker_compose_dir` - docker compose dir
 * `mqtt_host` - mqtt host name/ip
-* `mqtt_port` - mqtt service port 1883 / 8883 (TLS)
+* `zigbee_mqtt_port` - mqtt service port 1883 / 8883 (TLS) to connect to
 * `cert_dir` - ssl certificates dir (required if using TLS port 8883)
 * `ca_cert` - name of CA certificate (required if using TLS port 8883)
 * `mqtt_user` - mqtt user (required if using port 1883)
